@@ -6,9 +6,9 @@ import { useEffect } from 'react';
 import axios from 'axios';
 
 
-const Films = () => {
+const Add = () => {
     const [films,setfilms] = useState([{
-            title: "",
+            film_id: "",
         }]);
     const handlechange = (e) => {
         setfilms(prev=>({...prev,[e.target.name]:e.target.value}))
@@ -16,9 +16,10 @@ const Films = () => {
     const handleClick = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get('http://localhost:8081/films/?title='+films.title);
+            const response = await axios.get('http://localhost:8081/films?id='+films.film_id + '');
             console.log(response)
             setfilms(response.data);
+            console.log(films)
             return(
                 <section className="home" id="home">
                     <div className="max-width">
@@ -26,20 +27,20 @@ const Films = () => {
                             <div className="App">
         
                                 <ul>
-                                    {films.map(film => (
-                                        <div key={film.title}>
-                                            <h2>{film.title}</h2>
-                                            <p>{film.description}</p>
-                                        </div>
-                                    ))}
+                                   
+                                        
+                                            <h2>{films}</h2>
+                                           
+                                    
                                 </ul>
-                            </div>
+                            </div>  
                         </div>
                     </div>
                 </section>
 
                 
-            )
+            );
+            this.forceUpdate();
             
             }
             catch (err) {
@@ -49,18 +50,30 @@ const Films = () => {
    console.log(films)
   
     return (
+        <section className="home" id="home">
+      <div className="max-width">
+        <div className="home-content">
+        <div className="App">
+        
+          
+        
+
         <div className="form">
         <h1>Search Films</h1>
         <form>
-            <input type="text" placeholder=" Film name" onChange={handlechange} name="title"/>
+            <input type="text" placeholder=" Film name" onChange={handlechange} name="film_id"/>
             <button onClick={handleClick}>Search</button>
         </form>
         </div>
 
+        </div>
+        </div>
+      </div>
+      </section>
 
        
 
     );
     }
 
-export default Films;
+export default Add;

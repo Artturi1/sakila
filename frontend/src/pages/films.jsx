@@ -28,10 +28,10 @@ const Films = () => {
         <div className="home-content">
         <div className="App">
         
-          <ul>
+        <ul>
             {films.map(film => (
-              <div key={film.title}>
-                <h2>{film.title}</h2>
+              <div className='data_style'  key={film.title}>
+                <h2> {film.title}</h2>
                 <p>{film.description}</p>
               </div>
             ))}

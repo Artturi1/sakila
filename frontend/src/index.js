@@ -9,8 +9,6 @@ import Actor from "./pages/actors";
 import Add from "./pages/search_films";
 
 
-
-
 function App() {
   return (
     <BrowserRouter>

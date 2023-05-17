@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { Outlet, Link } from "react-router-dom";
 
 const Films = () => {
     const [actors,setactors] = useState([]);
@@ -30,8 +31,17 @@ const Films = () => {
           
             <ul>
               {actors.map(actor => (
+                <div className='data_style'  key={actor.first_name}>
+                  
+                  <p>{actor.first_name}</p>   
+                  
+              
+                  
+                  <p>{actor.last_name}</p>
+                </div>
+
                 
-                    <p>{actor.first_name} {actor.last_name}</p>
+                    
                   
             
               ))}
